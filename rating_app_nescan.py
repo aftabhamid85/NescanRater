@@ -185,7 +185,7 @@ if st.session_state.rater_name:
         st.session_state.ratings.to_excel(writer, index=False)
     st.download_button(
         label="Export Your Ratings as Excel",
-        ata=buffer.getvalue(),
+        data=buffer.getvalue(),
         file_name=output_file,
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
