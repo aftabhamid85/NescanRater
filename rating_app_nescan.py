@@ -178,15 +178,9 @@ if st.session_state.rater_name:
         with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
             st.session_state.ratings.to_excel(writer, index=False)
         st.download_button(
-    output_file = f"ratings_by_{st.session_state.rater_name}.xlsx"
-    from io import BytesIO
-    buffer = BytesIO()
-    with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
-        st.session_state.ratings.to_excel(writer, index=False)
-    st.download_button(
-        label="Export Your Ratings as Excel",
-        data=buffer.getvalue(),
-        file_name=output_file,
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    )
+            label="Export Your Ratings as Excel",
+            data=buffer.getvalue(),
+            file_name=output_file,
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
 
